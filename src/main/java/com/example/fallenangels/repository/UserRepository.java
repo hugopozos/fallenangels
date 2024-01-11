@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -17,6 +18,11 @@ public interface UserRepository extends JpaRepository<User,Integer> {
      * @param email La dirección de correo electrónico del usuario a buscar.
      * @return Un objeto Optional que contiene el usuario encontrado, o vacío si no se encuentra ningún usuario con el correo electrónico especificado.
      */
-    Optional <User> findByEmail(String email);
+    Optional<User> findByEmail(String email);
+
+    List<User> findAll();
+
+    Optional<User> findUserById(Integer id);
+
 
 }
