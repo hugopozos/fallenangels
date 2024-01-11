@@ -18,12 +18,24 @@ public class AuthController {
 
     private final AuthService authService;
 
+    /**
+     * Realiza el inicio de sesión para un usuario.
+     *
+     * @param request la solicitud de inicio de sesión que contiene las credenciales del usuario
+     * @return una respuesta HTTP con los detalles de autenticación del usuario
+     */
     @PostMapping(value = "login")
     public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest request)
     {
         return ResponseEntity.ok(authService.login(request));
     }
 
+    /**
+     * Registra un nuevo usuario.
+     *
+     * @param request la solicitud de registro del usuario
+     * @return la respuesta de autenticación
+     */
     @PostMapping(value = "register")
     public ResponseEntity<AuthResponse> register(@RequestBody RegisterRequest request)
     {

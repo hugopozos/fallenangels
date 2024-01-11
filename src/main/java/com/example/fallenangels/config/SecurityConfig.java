@@ -23,8 +23,16 @@ public class SecurityConfig {
     private final JwtAuthFilter jwtAuthFilter;
     private final AuthenticationProvider authProvider;
 
+    /**
+     * Configuración de seguridad para la cadena de filtros de seguridad.
+     *
+     * @param http el objeto HttpSecurity utilizado para configurar la seguridad
+     * @return la cadena de filtros de seguridad configurada
+     * @throws Exception si ocurre algún error durante la configuración
+     */
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception
+    {
         return http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(authRequest ->

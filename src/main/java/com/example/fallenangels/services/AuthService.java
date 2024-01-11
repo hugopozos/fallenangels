@@ -26,7 +26,14 @@ public class AuthService {
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
 
-    public AuthResponse login(LoginRequest request) {
+    /**
+     * Realiza el inicio de sesión y devuelve la respuesta de autenticación.
+     *
+     * @param request la solicitud de inicio de sesión
+     * @return la respuesta de autenticación que contiene el token de acceso
+     */
+    public AuthResponse login(LoginRequest request) 
+    {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
         UserDetails user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado"));
@@ -38,7 +45,14 @@ public class AuthService {
                 .build();
     }
 
-    public AuthResponse register(RegisterRequest request) {
+    /**
+     * Registra un nuevo usuario y devuelve la respuesta de autenticación.
+     *
+     * @param request la solicitud de registro del usuario
+     * @return la respuesta de autenticación que contiene el token de acceso
+     */
+    public AuthResponse register(RegisterRequest request) 
+    {
         User user = User.builder()
                 .email(request.getEmail())
                 .name(request.getName())
