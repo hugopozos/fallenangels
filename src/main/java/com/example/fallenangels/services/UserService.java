@@ -84,4 +84,11 @@ public class UserService {
                 .updatedAt(String.valueOf(user.getUpdatedAt()))
                 .build();
     }
+
+    public void deleteUser(Integer id)
+    {
+        User user = userRepository.findUserById(id)
+                .orElseThrow(() -> new NoSuchElementException("Usuario no encontrado"));
+        userRepository.delete(user);
+    }
 }
