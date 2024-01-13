@@ -1,6 +1,6 @@
-package com.example.fallenangels.repository;
+package com.example.fallenangels.repository.Database1;
 
-import com.example.fallenangels.models.User;
+import com.example.fallenangels.models.Database1.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;

@@ -3,9 +3,10 @@ package com.example.fallenangels.services;
 import com.example.fallenangels.http.request.RegisterRequest;
 import com.example.fallenangels.http.response.UserResponse;
 import com.example.fallenangels.models.Role;
-import com.example.fallenangels.models.User;
-import com.example.fallenangels.repository.UserRepository;
+import com.example.fallenangels.models.Database1.User;
+import com.example.fallenangels.repository.Database1.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +18,9 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class UserService {
 
+    @Autowired
     private final UserRepository userRepository;
+
     private final PasswordEncoder passwordEncoder;
 
 
@@ -67,7 +70,6 @@ public class UserService {
                 .updatedAt(String.valueOf(user.getUpdatedAt()))
                 .build();
     }
-
 
     public UserResponse updateUser(Integer id, RegisterRequest request)
     {

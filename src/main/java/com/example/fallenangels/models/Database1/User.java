@@ -1,5 +1,6 @@
-package com.example.fallenangels.models;
+package com.example.fallenangels.models.Database1;
 
+import com.example.fallenangels.models.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -52,7 +53,6 @@ public class User implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority((role.name())));
-
     }
 
     @Override

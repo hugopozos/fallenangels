@@ -4,8 +4,8 @@ import com.example.fallenangels.http.request.LoginRequest;
 import com.example.fallenangels.http.request.RegisterRequest;
 import com.example.fallenangels.http.response.AuthResponse;
 import com.example.fallenangels.models.Role;
-import com.example.fallenangels.models.User;
-import com.example.fallenangels.repository.UserRepository;
+import com.example.fallenangels.models.Database1.User;
+import com.example.fallenangels.repository.Database1.UserRepository;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.security.authentication.AuthenticationManager;
