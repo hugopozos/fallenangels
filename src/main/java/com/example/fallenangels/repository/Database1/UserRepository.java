@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-@Transactional(readOnly=true)
+@Transactional(transactionManager = "db1TransactionManager")
 public interface UserRepository extends JpaRepository<User,Integer> {
 
     /**
